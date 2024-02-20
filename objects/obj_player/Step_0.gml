@@ -2,8 +2,8 @@
 
 #region Controls
 
-var _accel = 1;
-var _maxspeed = 1;
+var _accel = 0.7;
+var _maxspeed = 0.7;
 var _ud = keyboard_check(key_down)-keyboard_check(key_up);
 var _lr = keyboard_check(key_right)-keyboard_check(key_left);
 
@@ -41,22 +41,7 @@ if (scr_tilemap_box_collision(col_map,bbox_left,bbox_top + _fyspeed,bbox_right,b
 
 #endregion
 
-#region Shooting
-
-if ((ammo_loaded <= 0 || keyboard_check_pressed(ord("R")))) {
-	var _diff = max_load - ammo_loaded;	
-	var _pull = (_diff < ammo_left) ? _diff : ammo_left;
-	ammo_left -= _pull;
-	ammo_loaded += _pull;
-	reloading = true;
-	alarm[0] = game_get_speed(gamespeed_fps)/2;
-}
-
-#endregion
-
 #region Animated bits
-
-sprite_index = reloading ? spr_player_reload : spr_player;
 
 #endregion
 
