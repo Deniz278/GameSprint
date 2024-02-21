@@ -15,6 +15,8 @@
   ],
   "ResourceOrderSettings": [
     {"name":"spr_tiles","order":2,"path":"sprites/spr_tiles/spr_tiles.yy",},
+    {"name":"spr_32","order":3,"path":"sprites/spr_32/spr_32.yy",},
+    {"name":"obj_timer","order":2,"path":"objects/obj_timer/obj_timer.yy",},
     {"name":"obj_player","order":1,"path":"objects/obj_player/obj_player.yy",},
     {"name":"rm_test","order":1,"path":"rooms/rm_test/rm_test.yy",},
   ],

@@ -1,0 +1,1 @@
+timer = 0; // Initialize the timer to 0

@@ -2,55 +2,55 @@
 
 #region Controls
 
-var _accel = 0.7;
-var _maxspeed = 0.7;
-var _ud = keyboard_check(key_down)-keyboard_check(key_up);
-var _lr = keyboard_check(key_right)-keyboard_check(key_left);
+// Maximum speed
+var _maxspeed = 0.1; // Adjust this value to change maximum speed
+
+var _ud = keyboard_check(key_down) - keyboard_check(key_up);
+var _lr = keyboard_check(key_right) - keyboard_check(key_left);
 
 #endregion
 
 #region Movement
 
-dir = point_direction(x,y,mouse_x,mouse_y);
-yspeed += _ud*_accel;
-xspeed += _lr*_accel;
+// Calculate direction towards mouse
+dir = point_direction(x, y, mouse_x, mouse_y);
 
-xspeed = clamp(xspeed-fric*sign(xspeed),-_maxspeed,_maxspeed);
-yspeed = clamp(yspeed-fric*sign(yspeed),-_maxspeed,_maxspeed);
+// Set speed based on controls
+yspeed = _ud * _maxspeed;
+xspeed = _lr * _maxspeed;
 
+// If speed is very low, set it to zero to prevent jittering
 if (abs(xspeed) < 0.1) {
-	xspeed = 0;
+    xspeed = 0;
 }
 if (abs(yspeed) < 0.1) {
-	yspeed = 0;
+    yspeed = 0;
 }
 
-// floored speed values (for accurate collision checking)
-var _fxspeed = floor(xspeed);
-var _fyspeed = floor(yspeed);
+// Calculate next position
+var _tx = x + xspeed;
+var _ty = y + yspeed;
 
-var _tx = (x+_fxspeed);
-var _ty = (y+_fyspeed);
-
-if (scr_tilemap_box_collision(col_map,bbox_left + _fxspeed,bbox_top,bbox_right + _fxspeed,bbox_bottom)) {
-	_tx = x;
+// Check collision with tilemap and adjust position if necessary
+if (scr_tilemap_box_collision(col_map, bbox_left + xspeed, bbox_top, bbox_right + xspeed, bbox_bottom)) {
+    _tx = x;
 }
-if (scr_tilemap_box_collision(col_map,bbox_left,bbox_top + _fyspeed,bbox_right,bbox_bottom + _fyspeed)) {
-	_ty = y;
+if (scr_tilemap_box_collision(col_map, bbox_left, bbox_top + yspeed, bbox_right, bbox_bottom + yspeed)) {
+    _ty = y;
 }
-
-#endregion
-
-#region Animated bits
 
 #endregion
 
 #region Finalise movement
-if (hp > 0) {	// if you're not dead
-	x = _tx;
-	y = _ty;
-} else {
-	show_message("You died after senselessly killing " + string(obj_controller.killed_enemies) + " soldiers");
-	game_restart();
+
+// Update position
+x = _tx;
+y = _ty;
+
+// If dead, display message and restart game
+if (hp <= 0) {
+    show_message("You died after senselessly killing " + string(obj_controller.killed_enemies) + " soldiers");
+    game_restart();
 }
+
 #endregion

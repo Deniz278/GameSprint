@@ -34,8 +34,10 @@
   "resources": [
     {"id":{"name":"spr_player","path":"sprites/spr_player/spr_player.yy",},},
     {"id":{"name":"spr_tiles","path":"sprites/spr_tiles/spr_tiles.yy",},},
+    {"id":{"name":"spr_32","path":"sprites/spr_32/spr_32.yy",},},
     {"id":{"name":"ts_basic","path":"tilesets/ts_basic/ts_basic.yy",},},
     {"id":{"name":"scr_tilemap_box_collision","path":"scripts/scr_tilemap_box_collision/scr_tilemap_box_collision.yy",},},
+    {"id":{"name":"obj_timer","path":"objects/obj_timer/obj_timer.yy",},},
     {"id":{"name":"obj_controller","path":"objects/obj_controller/obj_controller.yy",},},
     {"id":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},},
     {"id":{"name":"rm_init","path":"rooms/rm_init/rm_init.yy",},},
