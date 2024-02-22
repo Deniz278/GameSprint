@@ -21,3 +21,5 @@ key_down = ord("S");
 key_left = ord("A");
 key_right = ord("D");
 
+hascontrol = true;
+

@@ -1,11 +1,13 @@
+// Step Event (with formatted output)
+timer += 1; // Increment the timer by 1 every step (assuming 60 FPS)
 
-draw_set_color(c_black); // Set the color for the timer text
+// Calculate time components
+var hours = floor(timer / 3600);
+var minutes = floor((timer mod 3600) / 60);
+var seconds = timer mod 60;
 
-// Calculate the time in seconds
-var seconds = timer div room_speed;
+// Create formatted time string
+var time_string = string(hours) + ":" + string(minutes) + ":" + string(seconds);
 
-// Convert time to a string for display
-var time_string = string(seconds);
-
-// Draw the timer text at position (20, 20) on the screen
-draw_text(20, 20, "Time: " + time_string);
+// Draw the timer on the screen
+draw_text(10, 30, "Timer: " + time_string);
