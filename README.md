@@ -4,4 +4,5 @@ As part of a school project, I collaborated with a group to develop a game using
 ![maze2](https://github.com/Deniz278/GameSprint/assets/130264031/4d1d3c08-a56d-4e35-917d-9ed269b23593)
 
 Trailer below:
+
 [![Watch the video](https://img.youtube.com/vi/qj6qnebe8sU/maxresdefault.jpg)](https://youtu.be/qj6qnebe8sU)
